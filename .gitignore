@@ -86,7 +86,7 @@ __pycache__
 *.gif
 *.xap
 # *.jpeg
-.xml
+*.xml
 
 # virtualenv directory
 ## e.g. venv_django_react_configure
