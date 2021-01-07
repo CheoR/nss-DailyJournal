@@ -82,10 +82,11 @@ __pycache__
 ####################
 *.rst
 *.jpg
-*.png*
+# *.png*
 *.gif
 *.xap
 # *.jpeg
+.xml
 
 # virtualenv directory
 ## e.g. venv_django_react_configure
@@ -300,6 +301,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# FOR DRAW.IO
-.xml
