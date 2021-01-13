@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <style type="text/css"></style> -->
-    <link rel="stylesheet" href="./styles/main.css">
-    <title>Daily Journal</title>
-</head>
-<body>
-    <img src="https://avatars3.githubusercontent.com/u/5026476?v=4" alt="Image of Cheo">
-    <h1>Daily Journal</h1>
-    <nav>
-        <ul class="header__navLinks">
-            <li class="nav__link">Link1</li>
-            <li class="nav__link">Link2</li>
-            <li class="nav__link">Link3</li>
-            <li class="nav__link">Link4</li>  
-        </ul>
-    </nav>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <style type="text/css"></style> -->
+        <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
+        <title>Daily Journal</title>
+    </head>
+    <body>
+        <header>
+            <img src="https://avatars3.githubusercontent.com/u/5026476?v=4" alt="Image of Cheo">
+            <h1>Daily Journal</h1>
+            <nav>
+                <ul class="header__navLinks">
+                    <li class="nav__link"><a href="#"> Link1</a></li>
+                    <li class="nav__link"><a href="#"> Link2</a></li>
+                    <li class="nav__link"><a href="#"> Link3</a></li>
+                    <li class="nav__link"><a href="#"> Link4</a></li>  
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Cheo's Thoughts</h1>
+            <section class="main_section">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere nam maxime minima tenetur, doloribus deleniti rem vitae ducimus, consequuntur maiores, culpa sunt. Laudantium suscipit impedit deserunt quia reprehenderit odit obcaecati.
+                </p>
+            </section>
+
+            <h2>Daily Journal</h2>
+            <form action="" method="get" class="main_section__form">
+                <fieldset>
+                    <label for="journalDate">Date of Entry</label>
+                    <input type="date" name="journalDate" id="journalDate">
+
+                    <label for="conceptsCovered">Concepts Covered </label>
+                    <input type="text" name="conceptsCovered" id="conceptsCovered" required>
+                    
+                    <label for="mood-select">Mood:</label>
+                    <select name="mood" id="mood-select">
+                        <option value="">--How am I feeling?--</option>
+                        <option value="anxious">Anxious</option>
+                        <option value="stressed">Stressed</option>
+                        <option value="angry">Angry</option>
+                        <option value="silly">Silly</option>
+                        <option value="good">Good</option>
+                        <option value="iCanDoThis">I can do this</option>
+                    </select>
+
+                    <label for="journalEntry">Journal Entry</label>
+
+                    <textarea id="journalEntry" name="journalEntry"
+                    rows="5" cols="33" placeholder="Today we covered . . ">
+                    </textarea>
+
+                </fieldset>
+              </form>
+        </main>
+        <aside class="entries">
+            <h2>Journal Entries</h2>
+            <ul class="entries__log">
+                <li class="entry">21/07/01: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li class="entry">21/06/01: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li class="entry">21/05/01: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li class="entry">21/04/01: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li class="entry">20/12/31: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+            </ul>
+        </aside>
+        <footer>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum at tempora alias fuga corporis exercitationem error totam, hic recusandae blanditiis saepe natus adipisci repudiandae, modi praesentium deleniti suscipit! Illo, aut.</footer>
+    </body>
 </html>
