@@ -29,6 +29,27 @@ const journal = [
         entry: "Worked in teams to practice github collaboration.",
         mood: "Hopeful"
     },
+    {
+        id: 4,
+        date: "07/28/2025",
+        concept: "Lab Time",
+        entry: "Getting caught up on team project and chapters from booking 1. CSS not going so well.",
+        mood: "Positive"
+    },
+    {
+        id: 5,
+        date: "07/29/2025",
+        concept: "Talked about Frontend Capstone",
+        entry: "Talk about possible projects and expectations.",
+        mood: "Eager"
+    },
+    {
+        id: 6,
+        date: "07/30/2025",
+        concept: "Lab time and CSS",
+        entry: "Wasted whole day trying to get flexbox to work. Class and '.' in class name will cause much issues.",
+        mood: "Bummed"
+    },
 ]
 
 /*
