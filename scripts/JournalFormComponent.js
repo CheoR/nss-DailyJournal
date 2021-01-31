@@ -54,6 +54,16 @@ const _createNewNoteFactory = () => {
  const _mood = document.querySelector("#mood-select").value
  const _entry = document.querySelector("#journalEntry").value
 
+ if(_concepts.length > 25) {
+  window.alert("25 Character limit. You write too much - as punishment, start over.")
+  return 0
+ }
+
+ if(_entry.length > 250) {
+  window.alert("250 Character limit. You write too much - as punishment, start over.")
+  return 0
+ }
+
  const newNote = {
   date: _date,
   concept: _concepts,
