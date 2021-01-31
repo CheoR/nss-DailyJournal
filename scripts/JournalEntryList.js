@@ -12,10 +12,15 @@ const eventHub = document.querySelector("main")
 
 export const EntryListComponent = () => {
     const entries = useJournalEntries()
-    const entryLog = document.querySelector("#entryLog")
+    const entryLog = document.querySelector(".main__entries")
 
     entryLog.innerHTML = ""
-    entryLog.innerHTML = `${entries.map((entry) => JournalEntryComponent(entry)).join("")}`
+    entryLog.innerHTML = `
+        <h2>Journal Entries</h2>
+        <ul id="entryLog" class="entries__log">
+            ${entries.map((entry) => JournalEntryComponent(entry)).join("")}
+        </ul>
+    `
 }
 
 eventHub.addEventListener("journalStateChanged", customEvent => {
