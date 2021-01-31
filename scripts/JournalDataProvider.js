@@ -1,8 +1,12 @@
 let journal = []
+const eventHub = document.querySelector("main")
 
 /*
     Hardcoded data moved to entires.json for api use.
 */
+
+export const useJournalEntries = () => journal.sort(_byDate)
+
 
 export const getEntries = () => {
     return fetch("http://localhost:8088/entries")
@@ -11,14 +15,32 @@ export const getEntries = () => {
             journal = entries
         })
     }
-/*
-    You export a function that provides a version of the
-    raw data in the format that you want
-*/
-export const useJournalEntries = () => {
-    const sortedByDate = journal.sort(
-        (currentEntry, nextEntry) =>
-            Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
-    )
-    return sortedByDate
+
+
+const dispatchStateChangeEvent = () => {
+    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
+}
+
+
+export const saveJournalEntry = ( entryObj ) => {
+    const _url = "http://localhost:8088/entries"
+    fetch(_url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entryObj)
+    })
+        .then(getEntries)
+        .then(dispatchStateChangeEvent)
+        // does calling dispatchStateChangeEvent
+        // overwrite the CustomeEvent in eventHub or
+        // just update the exisiting journalStateChanged
+}
+
+
+const _byDate = (currDate, nextDate) => {
+    if ( Date.parse(nextDate.date) < Date.parse(currDate.date) ) { return -1; }
+    if ( Date.parse(nextDate.date) > Date.parse(currDate.date) ) { return 1; }
+    return 0;
 }
