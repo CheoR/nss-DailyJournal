@@ -22,3 +22,24 @@ export const useJournalEntries = () => {
     )
     return sortedByDate
 }
+
+const eventHub = document.querySelector("main")
+const dispatchStateChangeEvent = () => {
+    eventHub.dispatchEvent(new CuscomeEvent("journalStateChanged"))
+}
+
+const saveJournalEntry = ( entryObj ) => {
+    const _url = "http://localhost:8088/entries"
+    fetch(_url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entryObj)
+    })
+        .then(getEntries)
+        .then(dispatchStateChangeEvent)
+        // does calling dispatchStateChangeEvent
+        // overwrite the CustomeEvent in eventHub or
+        // just update the exisiting journalStateChanged
+}
