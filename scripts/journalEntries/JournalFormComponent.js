@@ -1,5 +1,6 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
 import { MoodSelector } from "../moods/MoodSelector.js"
+import { instructorSelect } from "../instructors/instructorSelector.js"
 
 const eventHub = document.querySelector("main")
 const contentTarget = document.querySelector(".main__article")
@@ -15,12 +16,17 @@ const _render = () => {
           <label for="journalDate">Date of Entry</label>
           <input type="date" name="journalDate" id="journalDate">
 
+          <label for="instructorSelect">Instructor:</label>
+            <select name="instructorSelect" id="instructorSelect">
+            <option value="0">Instructor</option>
+            </select>
+
           <label for="conceptsCovered">Concepts Covered </label>
           <input type="text" name="conceptsCovered" id="conceptsCovered" required>
           
-            <label for="mood-select">Mood:</label>
-            <select name="mood" id="mood-select">
-            <option value="">--How am I feeling?--</option>
+            <label for="moodSelect">Mood:</label>
+            <select name="moodSelect" id="moodSelect">
+            <option value="0">--How am I feeling?--</option>
             </select>
 
           <label for="journalEntry">Journal Entry</label>
@@ -31,6 +37,8 @@ const _render = () => {
   </form>
  `
  MoodSelector()
+ instructorSelect()
+
 }
 
 
@@ -47,8 +55,10 @@ const _createNewNoteFactory = () => {
 
  const _date = document.querySelector("#journalDate").value || `${dateObj.toLocaleDateString('en-US', options)}`
  const _concepts = document.querySelector("#conceptsCovered").value
- const _mood = document.querySelector("#mood-select").value
+ const _mood = parseInt(document.querySelector("#moodSelect").value)
  const _entry = document.querySelector("#journalEntry").value
+ const _instructor = parseInt(document.querySelector("#instructorSelect").value) || 1 // No selction defaults to "My Self"
+
 
  if(_concepts.length > 25) {
   window.alert("25 Character limit. You write too much - as punishment, start over.")
@@ -63,7 +73,8 @@ const _createNewNoteFactory = () => {
  const newNote = {
   date: _date,
   concept: _concepts,
-  moodId: parseInt(_mood),
+  moodId: _mood,
+  instructorId: _instructor,
   entry: _entry
  }
 
