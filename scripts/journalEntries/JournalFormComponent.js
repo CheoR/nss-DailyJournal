@@ -1,4 +1,5 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
+import { MoodSelector } from "../moods/MoodSelector.js"
 
 const eventHub = document.querySelector("main")
 const contentTarget = document.querySelector(".main__article")
@@ -17,16 +18,10 @@ const _render = () => {
           <label for="conceptsCovered">Concepts Covered </label>
           <input type="text" name="conceptsCovered" id="conceptsCovered" required>
           
-          <label for="mood-select">Mood:</label>
-          <select name="mood" id="mood-select">
-              <option value="">--How am I feeling?--</option>
-              <option value="anxious">Anxious</option>
-              <option value="stressed">Stressed</option>
-              <option value="angry">Angry</option>
-              <option value="silly">Silly</option>
-              <option value="good">Good</option>
-              <option value="iCanDoThis">I can do this</option>
-          </select>
+            <label for="mood-select">Mood:</label>
+            <select name="mood" id="mood-select">
+            <option value="">--How am I feeling?--</option>
+            </select>
 
           <label for="journalEntry">Journal Entry</label>
 
@@ -35,6 +30,7 @@ const _render = () => {
       <input id="submit" type="submit" value="Submit" />
   </form>
  `
+ MoodSelector()
 }
 
 
@@ -67,12 +63,12 @@ const _createNewNoteFactory = () => {
  const newNote = {
   date: _date,
   concept: _concepts,
-  mood: _mood,
+  moodId: parseInt(_mood),
   entry: _entry
  }
 
  return newNote
-}
+} // _createNewNoteFactory
 
 eventHub.addEventListener("click", clickEvent => {
  clickEvent.preventDefault()
@@ -81,7 +77,7 @@ eventHub.addEventListener("click", clickEvent => {
 
   const newNote = _createNewNoteFactory()
 
-  if(newNote.entry && newNote.mood && newNote.concept) {
+  if(newNote.entry && newNote.moodId && newNote.concept) {
    saveJournalEntry(newNote)
 
    // show user form submitted
@@ -90,5 +86,5 @@ eventHub.addEventListener("click", clickEvent => {
    window.alert("Form fields must be filled to submit.")
    _render()
   }
- }
-})
+ } // if
+}) // eventHub - click

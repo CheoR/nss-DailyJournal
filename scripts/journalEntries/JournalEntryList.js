@@ -14,7 +14,6 @@ export const EntryListComponent = () => {
     const entries = useJournalEntries()
     const entryLog = document.querySelector(".main__entries")
 
-    entryLog.innerHTML = ""
     entryLog.innerHTML = `
         <h2>Journal Entries</h2>
         <ul id="entryLog" class="entries__log">
