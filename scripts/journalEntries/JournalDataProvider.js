@@ -36,8 +36,32 @@ export const getEntries = () => {
             }
         },
     ]
+
+    expand more than one fk
+    http://localhost:8088/entries?_expand=instructor&_expand=mood
+    [
+  {
+    "date": "1/31/2021, 09:24 AM",
+    "concept": "dfadfdfff",
+    "moodId": 4,
+    "instructorId": 1,
+    "entry": "afadf",
+    "id": 1,
+    "instructor": {
+      "id": 1,
+      "firstName": "Myself",
+      "lastName": ""
+    },
+    "mood": {
+      "id": 4,
+      "label": "sad"
+    }
+  }
+]
     */
-    return fetch("http://localhost:8088/entries?_expand=mood")
+    //    return fetch("http://localhost:8088/entries?_expand=mood?_expand=instructor")
+
+    return fetch("http://localhost:8088/entries?_expand=instructor&_expand=mood")
         .then((entries) => entries.json()) // string to object
         .then((entries) => { // entries is now an arrayd
             journal = entries
