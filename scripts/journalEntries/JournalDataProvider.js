@@ -51,6 +51,7 @@ const dispatchStateChangeEvent = () => {
 
 
 export const saveJournalEntry = ( entryObj ) => {
+
     const _url = "http://localhost:8088/entries"
     fetch(_url, {
         method: "POST",

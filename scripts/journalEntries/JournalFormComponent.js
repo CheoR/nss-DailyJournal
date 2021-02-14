@@ -1,4 +1,5 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
+import { MoodSelector } from "../moods/MoodSelector.js"
 
 const eventHub = document.querySelector("main")
 const contentTarget = document.querySelector(".main__article")
@@ -29,6 +30,7 @@ const _render = () => {
       <input id="submit" type="submit" value="Submit" />
   </form>
  `
+ MoodSelector()
 }
 
 
@@ -61,12 +63,12 @@ const _createNewNoteFactory = () => {
  const newNote = {
   date: _date,
   concept: _concepts,
-  mood: _mood,
+  moodId: parseInt(_mood),
   entry: _entry
  }
 
  return newNote
-}
+} // _createNewNoteFactory
 
 eventHub.addEventListener("click", clickEvent => {
  clickEvent.preventDefault()
@@ -75,7 +77,7 @@ eventHub.addEventListener("click", clickEvent => {
 
   const newNote = _createNewNoteFactory()
 
-  if(newNote.entry && newNote.mood && newNote.concept) {
+  if(newNote.entry && newNote.moodId && newNote.concept) {
    saveJournalEntry(newNote)
 
    // show user form submitted
@@ -84,5 +86,5 @@ eventHub.addEventListener("click", clickEvent => {
    window.alert("Form fields must be filled to submit.")
    _render()
   }
- }
-})
+ } // if
+}) // eventHub - click
