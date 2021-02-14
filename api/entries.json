@@ -3,16 +3,105 @@
     {
       "date": "1/31/2021, 09:24 AM",
       "concept": "dfadfdfff",
-      "mood": "stressed",
+      "moodId": 4,
       "entry": "afadf",
       "id": 1
     },
     {
       "date": "1/31/2021, 09:24 AM",
       "concept": "werwwere",
-      "mood": "good",
+      "moodId": 19,
       "entry": "aaasdf",
       "id": 2
+    },
+    {
+      "date": "2/13/2021, 07:56 PM",
+      "concept": "components",
+      "moodId": 15,
+      "entry": "got components working with eventlistneres",
+      "id": 3
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "fatigued"
+    },
+    {
+      "id": 2,
+      "label": "bored"
+    },
+    {
+      "id": 3,
+      "label": "depressed"
+    },
+    {
+      "id": 4,
+      "label": "sad"
+    },
+    {
+      "id": 5,
+      "label": "unpleasant"
+    },
+    {
+      "id": 6,
+      "label": "upset"
+    },
+    {
+      "id": 7,
+      "label": "stressed"
+    },
+    {
+      "id": 8,
+      "label": "nervous"
+    },
+    {
+      "id": 9,
+      "label": "tense"
+    },
+    {
+      "id": 10,
+      "label": "alert"
+    },
+    {
+      "id": 11,
+      "label": "excited"
+    },
+    {
+      "id": 12,
+      "label": "elated"
+    },
+    {
+      "id": 13,
+      "label": "happy"
+    },
+    {
+      "id": 14,
+      "label": "pleasant"
+    },
+    {
+      "id": 15,
+      "label": "contented"
+    },
+    {
+      "id": 16,
+      "label": "serene"
+    },
+    {
+      "id": 17,
+      "label": "relaxed"
+    },
+    {
+      "id": 18,
+      "label": "calm"
+    },
+    {
+      "id": 19,
+      "label": "good"
+    },
+    {
+      "id": 20,
+      "label": "other"
     }
   ]
 }
