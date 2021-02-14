@@ -17,16 +17,10 @@ const _render = () => {
           <label for="conceptsCovered">Concepts Covered </label>
           <input type="text" name="conceptsCovered" id="conceptsCovered" required>
           
-          <label for="mood-select">Mood:</label>
-          <select name="mood" id="mood-select">
-              <option value="">--How am I feeling?--</option>
-              <option value="anxious">Anxious</option>
-              <option value="stressed">Stressed</option>
-              <option value="angry">Angry</option>
-              <option value="silly">Silly</option>
-              <option value="good">Good</option>
-              <option value="iCanDoThis">I can do this</option>
-          </select>
+            <label for="mood-select">Mood:</label>
+            <select name="mood" id="mood-select">
+            <option value="">--How am I feeling?--</option>
+            </select>
 
           <label for="journalEntry">Journal Entry</label>
 
