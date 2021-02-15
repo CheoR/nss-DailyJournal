@@ -2,11 +2,13 @@ let journal = []
 const eventHub = document.querySelector("main")
 
 /*
-    Hardcoded data moved to entires.json for api use.
+Hardcoded data moved to entires.json for api use.
 */
 
-export const useJournalEntries = () => journal.sort(_byDate)
 
+export const useJournalEntries = () => journal.sort(_byDate)
+const journalStateChanged = new CustomEvent("journalStateChanged")
+const dispatchStateChangeEvent = () => eventHub.dispatchEvent(journalStateChanged)
 
 export const getEntries = () => {
     /*
@@ -69,13 +71,11 @@ export const getEntries = () => {
     }
 
 
-const dispatchStateChangeEvent = () => {
-    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
-}
-
 
 export const saveJournalEntry = ( entryObj ) => {
-
+    /*
+        TODO: change to use event l
+    */
     const _url = "http://localhost:8088/entries"
     fetch(_url, {
         method: "POST",
@@ -89,7 +89,18 @@ export const saveJournalEntry = ( entryObj ) => {
         // does calling dispatchStateChangeEvent
         // overwrite the CustomeEvent in eventHub or
         // just update the exisiting journalStateChanged
-}
+} // saveJournalEntry
+
+
+eventHub.addEventListener("deleteBtnClicked", clickEvent => {
+    const _id = clickEvent.detail.id
+    const _url = `http://localhost:8088/entries/${_id}`
+    fetch(_url, {
+        method: "DELETE"
+    })
+        .then(getEntries)
+        .then(dispatchStateChangeEvent)
+}) // eventHub - deleteBtnClicked 
 
 
 const _byDate = (currDate, nextDate) => {
