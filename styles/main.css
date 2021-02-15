@@ -183,3 +183,12 @@ footer p {
 .main__entries {
   flex: 2;
 }
+
+.deleteBtn {
+  display: block;
+  padding: 0.5em;
+  border: 2px dotted black;
+  background: red;
+  margin: 0 auto;
+  border-radius: 10px;
+}

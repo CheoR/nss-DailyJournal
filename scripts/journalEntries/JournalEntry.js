@@ -1,3 +1,4 @@
+import { deleteBnt } from "../deleteBtn/deleteBtn.js"
 /*
  *  Purpose: To render a single journal entry as an
  *           HTML representation of the data
@@ -9,6 +10,7 @@ export const JournalEntryComponent = (entry) => {
             <h3>${entry.concept} - ${entry.instructor.firstName}</h3>
             <time>${entry.date}</time> - <span>${entry.mood.label}</span>
             <p>${entry.entry}</p>
+            ${deleteBnt(`${entry.id}`)}
         </section>
     `
 }
