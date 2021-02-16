@@ -26,7 +26,7 @@ const _render = () => {
           
             <label for="moodSelect">Mood:</label>
             <select name="moodSelect" id="moodSelect">
-            <option value="0">--How am I feeling?--</option>
+              <option value="0">--How am I feeling?--</option>
             </select>
 
           <label for="journalEntry">Journal Entry</label>

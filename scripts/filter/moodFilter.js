@@ -1,38 +1,25 @@
-/*
- Get a copy of moods.
+import { getMoods, useMoods } from "../moods/MoodDataProvider.js"
 
-*/
 const eventHub = document.querySelector("main")
 
-const moods = [
-  {
-    id: 1,
-    label: "happy"
-  },
-  {
-    id: 2,
-    label: "sad"
-  },
-  {
-    id: 3,
-    label: "cold"
-  }
-]
-export const moodFilter = () => {
- const _moods = moods.map((mood) => {
+export const moodFilter = ( moodsCollection ) => {
+ const _moods = moodsCollection.map((mood) => {
   return `
     <input type="radio" name="moodFilter" id="${ mood.id }" value="${ mood.id }" />
     <label for="${ mood.id }" >${ mood.label }</label>
   `
  }).join("") // moods.map
- 
+
  return `
    <fieldset class="fieldset">
     <legend>Filter Entries by Mood</legend>
+    <input type="radio" name="moodFilter" id="0" value="0" />
+    <label for="0" >All</label>
     ${_moods}
    </fieldset>
  `
-}
+} // moodFilter
+
 
 eventHub.addEventListener("click", clickEvent => {
   if(clickEvent.target.name === "moodFilter") {

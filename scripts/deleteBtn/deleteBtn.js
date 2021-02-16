@@ -1,10 +1,6 @@
 const eventHub = document.querySelector("main")
 
-export const deleteBnt = (id) => {
- return `
-  <button id="delete--${id}" class="deleteBtn">Delete</button>
- `
-}
+export const deleteBnt = ( id ) => `<button id="delete--${id}" class="deleteBtn">Delete</button>`
 
 eventHub.addEventListener("click", clickEvent => {
  if(clickEvent.target.id.includes("delete")) {

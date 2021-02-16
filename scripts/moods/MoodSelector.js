@@ -5,7 +5,7 @@ const _render = (moodCollection) => {
  const options = moodCollection.map((mood) => `<option value="${mood.id}">${mood.label}</option>`).join("") // moodCollection.map
 
  contentTarget.innerHTML += `${options}`
-}
+} // _render
 
 export const MoodSelector = () => {
  getMoods()
