@@ -5,7 +5,7 @@ export const useJournalEntries = () => journal.sort(_byDate)
 const journalStateChanged = new CustomEvent("journalStateChanged")
 const dispatchStateChangeEvent = () => eventHub.dispatchEvent(journalStateChanged)
 
-export const getEntries = () => {
+export const getJournalEntries = () => {
     /*
         Old way of entering mood.
         http://localhost:8088/entries
@@ -79,7 +79,7 @@ export const saveJournalEntry = ( entryObj ) => {
         },
         body: JSON.stringify(entryObj)
     })
-        .then(getEntries)
+        .then(getJournalEntries)
         .then(dispatchStateChangeEvent)
         // does calling dispatchStateChangeEvent
         // overwrite the CustomeEvent in eventHub or
@@ -93,7 +93,7 @@ eventHub.addEventListener("deleteBtnClicked", clickEvent => {
     fetch(_url, {
         method: "DELETE"
     })
-        .then(getEntries)
+        .then(getJournalEntries)
         .then(dispatchStateChangeEvent)
 }) // eventHub - deleteBtnClicked 
 
