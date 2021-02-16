@@ -1,11 +1,6 @@
 let journal = []
 const eventHub = document.querySelector("main")
 
-/*
-Hardcoded data moved to entires.json for api use.
-*/
-
-
 export const useJournalEntries = () => journal.sort(_byDate)
 const journalStateChanged = new CustomEvent("journalStateChanged")
 const dispatchStateChangeEvent = () => eventHub.dispatchEvent(journalStateChanged)

@@ -25,3 +25,7 @@ export const EntryListComponent = () => {
 eventHub.addEventListener("journalStateChanged", customEvent => {
  getEntries().then(() => EntryListComponent())
 })
+
+eventHub.addEventListener("moodSelected", selectEvent => {
+
+}) // eventHub - moodSelected
